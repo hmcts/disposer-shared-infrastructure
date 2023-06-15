@@ -1,3 +1,5 @@
+variable "product" {}
+
 variable "location" {
   type    = string
   default = "UK South"
@@ -54,14 +56,6 @@ variable "destroy_me" {
   default     = "No"
 }
 
-
-variable "namespace" {
-  type        = string
-  default     = ""
-@@ -45,3 +97,7 @@ variable "type" {
-  description = "Name of service type"
-  default     = ""
-}
 
 variable "application_name" {
   default     = "idam-user-disposer"
