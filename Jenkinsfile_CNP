@@ -1,0 +1,10 @@
+#!groovy
+//noinspection GroovyUnusedAssignment
+@Library("Infrastructure") _
+
+def branchesToSync = ['demo','ithc', 'perftest']
+
+withInfraPipeline("disposer") {
+    enableSlackNotifications("#disposer-builds")
+    syncBranchesWithMaster(branchesToSync)
+}
