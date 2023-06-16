@@ -11,6 +11,8 @@ variable "common_tags" {
 
 variable "env" {}
 
+variable "aks_subscription_id" {}
+
 variable "application_type" {
   default     = "web"
   description = "Type of Application Insights (Web/Other)"
