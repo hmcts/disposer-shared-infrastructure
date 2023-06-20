@@ -5,6 +5,6 @@
 def branchesToSync = ['demo','ithc', 'perftest']
 
 withInfraPipeline("disposer") {
-    //enableSlackNotifications("#disposer-builds")
+    enableSlackNotifications("#disposer-builds")
     syncBranchesWithMaster(branchesToSync)
 }
