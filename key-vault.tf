@@ -11,6 +11,28 @@ common_tags                = var.common_tags
 create_managed_identity    = true
 }
 
+
+data "azurerm_key_vault" "disposer_vault" {
+  name                = module.disposer-vault.key_vault_name
+  resource_group_name = azurerm_resource_group.rg.name
+}
+
+data "azurerm_key_vault" "s2s_vault" {
+  name                = "s2s-${var.env}"
+  resource_group_name = "rpe-service-auth-provider-${var.env}"
+}
+
+data "azurerm_key_vault_secret" "key_from_s2s_vault" {
+  name         = "microservicekey-disposer-idam-user"
+  key_vault_id = data.azurerm_key_vault.s2s_vault.id
+}
+
+resource "azurerm_key_vault_secret" "s2s" {
+  name         = "s2s-secret-disposer-idam-user"
+  value        = data.azurerm_key_vault_secret.key_from_s2s_vault.value
+  key_vault_id = data.azurerm_key_vault.disposer_vault.id
+}
+
 output "vaultName" {
 value = module.disposer-vault.key_vault_name
 }
