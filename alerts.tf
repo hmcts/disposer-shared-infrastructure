@@ -8,7 +8,7 @@ module "idam-user-disposer-action-group-slack-email" {
   env      = "prod"
   resourcegroup_name     = azurerm_resource_group.rg.name
   action_group_name      = "Idam User Disposer Slack Email Alert - ${var.env}"
-  short_name             = "disposer-alert"
+  short_name             = "dispr-alert"
   email_receiver_name    = "Idam User Disposer Run Failure Alert"
   email_receiver_address = "alerts-monitoring-aaaaklvwobh6lsictm7na5t3mi@moj.org.slack.com"
 }
