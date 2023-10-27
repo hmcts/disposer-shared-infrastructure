@@ -52,6 +52,9 @@ variable "destroy_me" {
   default     = "No"
 }
 
+variable "enable_alerts" {
+  default = false
+}
 
 variable "application_name" {
   default     = "idam-user-disposer"
