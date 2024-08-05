@@ -57,5 +57,5 @@ variable "enable_alerts" {
 }
 
 variable "application_name" {
-  default     = "idam-user-disposer"
+  default = "idam-user-disposer"
 }
