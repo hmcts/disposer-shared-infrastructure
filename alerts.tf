@@ -1,7 +1,6 @@
 module "idam-user-disposer-action-group-slack" {
   source                 = "git@github.com:hmcts/cnp-module-action-group"
   location               = "global"
-  env                    = var.env
   resourcegroup_name     = azurerm_resource_group.rg.name
   action_group_name      = "Idam User Disposer Failure Slack Alert - ${var.env}"
   short_name             = "disp-alert"
