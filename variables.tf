@@ -68,7 +68,7 @@ variable "disposer_time_window_in_minutes" {
   default = 1440
 }
 
-variable "disposer_enable_alerts" {
+variable "enable_disposer_alerts" {
   default = false
 }
 
