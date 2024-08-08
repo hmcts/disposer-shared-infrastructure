@@ -11,7 +11,7 @@ module "disposer-idam-user-service-failures-alert" {
   # window of 1 day as disposer run daily once
   time_window_in_minutes     = var.disposer_time_window_in_minutes
   severity_level             = "2"
-  action_group_name          = "Idam User Disposer Failure Slack Alert-${var.env}"
+  action_group_name          = "Idam User Disposer Failure Slack Alert - ${var.env}"
   trigger_threshold_operator = "GreaterThan"
   trigger_threshold          = "0"
   resourcegroup_name         = azurerm_resource_group.rg.name
