@@ -3,7 +3,7 @@ module "disposer-idam-user-fail-action-group-slack" {
   location               = "global"
   env                    = var.env
   resourcegroup_name     = azurerm_resource_group.rg.name
-  action_group_name      = "Disposer Idam User Fail Slack Alert - ${var.env}"
+  action_group_name      = "Disposer - ${var.env}"
   short_name             = "dispo-idam"
   email_receiver_name    = "Disposer Idam User Service Failure Alert"
   email_receiver_address = "alerts-monitoring-aaaaklvwobh6lsictm7na5t3mi@moj.org.slack.com"
