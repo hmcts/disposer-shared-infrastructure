@@ -1,11 +1,7 @@
-locals {
-  alert_resource_group_name = "disposer-prod"
-}
-
 module "idam-user-disposer-action-group-slack" {
   source                 = "git@github.com:hmcts/cnp-module-action-group"
   location               = "global"
-  env                    = "prod"
+  env                    = var.env
   resourcegroup_name     = azurerm_resource_group.rg.name
   action_group_name      = "Idam User Disposer Failure Slack Alert - ${var.env}"
   short_name             = "disp-alert"
@@ -27,9 +23,9 @@ module "idam-user-disposer-failure-alert" {
   time_window_in_minutes     = var.disposer_time_window_in_minutes
   severity_level             = "2"
   action_group_name          = module.idam-user-disposer-action-group-slack.action_group_name
-  trigger_threshold_operator = "Equals"
+  trigger_threshold_operator = "GreaterThan"
   trigger_threshold          = "0"
-  resourcegroup_name         = local.alert_resource_group_name
+  resourcegroup_name         = azurerm_resource_group.rg.name
   enabled                    = var.disposer_failure_enable_alerts
   common_tags                = var.common_tags
 }
