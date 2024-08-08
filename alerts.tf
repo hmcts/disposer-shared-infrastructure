@@ -1,3 +1,14 @@
+module "disposer-idam-user-fail-action-group-slack" {
+  source                 = "git@github.com:hmcts/cnp-module-action-group"
+  location               = "global"
+  env                    = var.env
+  resourcegroup_name     = azurerm_resource_group.rg.name
+  action_group_name      = "Disposer - ${var.env}"
+  short_name             = "dispo-idam"
+  email_receiver_name    = "Disposer Idam User Service Failure Alert"
+  email_receiver_address = "alerts-monitoring-aaaaklvwobh6lsictm7na5t3mi@moj.org.slack.com"
+}
+
 module "disposer-idam-user-service-failures-alert" {
   source               = "git@github.com:hmcts/cnp-module-metric-alert"
   location             = "uksouth"
@@ -11,7 +22,7 @@ module "disposer-idam-user-service-failures-alert" {
   # window of 1 day as disposer run daily once
   time_window_in_minutes     = var.disposer_time_window_in_minutes
   severity_level             = "2"
-  action_group_name          = "Idam User Disposer Failure Slack Alert - ${var.env}"
+  action_group_name          = module.disposer-idam-user-fail-action-group-slack.action_group_name
   trigger_threshold_operator = "GreaterThan"
   trigger_threshold          = "0"
   resourcegroup_name         = azurerm_resource_group.rg.name
