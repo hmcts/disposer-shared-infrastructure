@@ -13,7 +13,7 @@ module "idam-user-disposer-failure-alert" {
   source               = "git@github.com:hmcts/cnp-module-metric-alert"
   location             = var.location
   app_insights_name    = "disposer-${var.env}"
-  alert_name           = "${var.application_name}-${var.env}-failure"
+  alert_name           = "disposer-idam-user-service-${var.env}-failure-alert"
   alert_desc           = "Alert when idam user disposer fail to run"
   app_insights_query   = "traces | where message contains 'Error executing Disposer Idam User service' | where toint(dayofweek(timestamp)/1d) < 5 "
   custom_email_subject = "Alert: Idam user disposer failure in disposer-${var.env}"
