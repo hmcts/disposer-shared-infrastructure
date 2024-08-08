@@ -11,11 +11,11 @@ module "idam-user-disposer-action-group-slack" {
 
 module "idam-user-disposer-failure-alert" {
   source               = "git@github.com:hmcts/cnp-module-metric-alert"
-  location             = var.location
+  location             = "uksouth"
   app_insights_name    = "disposer-${var.env}"
-  alert_name           = "${var.application_name}-${var.env}-failure"
+  alert_name           = "idam-user-disposer-service-${var.env}-failure"
   alert_desc           = "Alert when idam user disposer fail to run"
-  app_insights_query   = "traces | where message contains 'Error executing Disposer Idam User service' | where toint(dayofweek(timestamp)/1d) < 5 "
+  app_insights_query   = "traces | where message contains 'Error executing Disposer Idam User service' | where toint(dayofweek(timestamp)/1d) < 5"
   custom_email_subject = "Alert: Idam user disposer failure in disposer-${var.env}"
   #run daily
   frequency_in_minutes = var.disposer_frequency_in_minutes
