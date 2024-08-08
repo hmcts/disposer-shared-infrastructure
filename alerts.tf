@@ -11,7 +11,7 @@ module "idam-user-disposer-action-group-slack" {
 
 module "idam-user-disposer-service-failure-alert" {
   source               = "git@github.com:hmcts/cnp-module-metric-alert"
-  location             = "uksouth"
+  location             = "UK South"
   app_insights_name    = "disposer-${var.env}"
   alert_name           = "idam-user-disposer-service-${var.env}-failure"
   alert_desc           = "Alert when idam user disposer fail to run"
