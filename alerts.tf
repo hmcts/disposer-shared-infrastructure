@@ -9,7 +9,7 @@ module "idam-user-disposer-action-group-slack" {
   email_receiver_address = "alerts-monitoring-aaaaklvwobh6lsictm7na5t3mi@moj.org.slack.com"
 }
 
-module "idam-user-disposer-failure-alert" {
+module "idam-user-disposer-service-failure-alert" {
   source               = "git@github.com:hmcts/cnp-module-metric-alert"
   location             = "uksouth"
   app_insights_name    = "disposer-${var.env}"
@@ -17,7 +17,7 @@ module "idam-user-disposer-failure-alert" {
   alert_desc           = "Alert when idam user disposer fail to run"
   app_insights_query   = "traces | where message contains 'Error executing Disposer Idam User service' | where toint(dayofweek(timestamp)/1d) < 5"
   custom_email_subject = "Alert: Idam user disposer failure in disposer-${var.env}"
-  #run daily
+  #run every day as Idam disposer runs only once
   frequency_in_minutes = var.disposer_frequency_in_minutes
   # window of 1 day as data extract needs to run daily
   time_window_in_minutes     = var.disposer_time_window_in_minutes
