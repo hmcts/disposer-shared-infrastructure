@@ -72,3 +72,7 @@ variable "disposer_failure_enable_alerts" {
   default = false
 }
 
+variable "disposer_summary_enable_alerts" {
+  default = false
+}
+
