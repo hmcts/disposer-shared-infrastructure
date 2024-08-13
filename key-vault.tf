@@ -36,3 +36,8 @@ resource "azurerm_key_vault_secret" "s2s" {
 output "vaultName" {
   value = module.disposer-vault.key_vault_name
 }
+
+data "azurerm_key_vault_secret" "idamUserDisposerSummaryAlertEmail" {
+  name         = "idamUserDisposerSummaryAlertEmail"
+  key_vault_id = data.azurerm_key_vault.disposer_vault.id
+}
