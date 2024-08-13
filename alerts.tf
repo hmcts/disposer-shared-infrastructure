@@ -38,7 +38,7 @@ module "idam-user-disposer-summary-action-group-slack" {
   action_group_name      = "Idam User Disposer Summary Slack Alert - ${var.env}"
   short_name             = "idam-user"
   email_receiver_name    = "Idam User Disposer Summary Alert"
-  email_receiver_address = "summary-alerts-aaaanwqtkx3vfbmtn645ac6uka@moj.org.slack.com"
+  email_receiver_address = data.azurerm_key_vault_secret.idamUserDisposerSummaryAlertEmail.value
 }
 
 module "idam-user-disposer-service-summary-alert" {
