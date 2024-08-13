@@ -41,11 +41,11 @@ module "idam-user-disposer-summary-action-group-slack" {
   email_receiver_address = data.azurerm_key_vault_secret.idamUserDisposerSummaryAlertEmail.value
 }
 
-module "idam-user-disposer-summary-alert" {
+module "idam-user-disposer-service-summary-alert" {
   source               = "git@github.com:hmcts/cnp-module-metric-alert"
   location             = "uksouth"
   app_insights_name    = "disposer-${var.env}"
-  alert_name           = "idam-user-disposer-${var.env}-summary"
+  alert_name           = "idam-user-disposer-service-${var.env}-summary"
   alert_desc           = "Alert when idam user disposer run and present summary"
   app_insights_query   = "traces | where message contains 'Disposer Idam User Summary' | where toint(dayofweek(timestamp)/1d) < 5"
   custom_email_subject = "Alert: Idam user disposer Summary in disposer-${var.env}"
