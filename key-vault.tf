@@ -41,3 +41,8 @@ data "azurerm_key_vault_secret" "idamUserDisposerSummaryAlertEmail" {
   name         = "idamUserDisposerSummaryAlertEmail"
   key_vault_id = data.azurerm_key_vault.disposer_vault.id
 }
+
+data "azurerm_key_vault_secret" "idamUserDisposerAlertEmail" {
+  name         = "idamUserDisposerAlertEmail"
+  key_vault_id = data.azurerm_key_vault.disposer_vault.id
+}
