@@ -6,7 +6,7 @@ module "idam-user-disposer-action-group-slack" {
   action_group_name      = "Idam User Disposer Failure Slack Alert - ${var.env}"
   short_name             = "disp-alert"
   email_receiver_name    = "Idam User Disposer Failure Alert"
-  email_receiver_address = "alerts-monitoring-aaaaklvwobh6lsictm7na5t3mi@moj.org.slack.com"
+  email_receiver_address = data.azurerm_key_vault_secret.idamUserDisposerAlertEmail.value
 }
 
 module "idam-user-disposer-service-failure-alert" {
