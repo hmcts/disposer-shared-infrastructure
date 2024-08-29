@@ -61,7 +61,7 @@ variable "application_name" {
 }
 
 variable "disposer_frequency_in_minutes" {
-  default = 1440
+  default = 930
 }
 
 variable "disposer_time_window_in_minutes" {
