@@ -15,7 +15,7 @@ module "idam-user-disposer-service-failure-alert" {
   app_insights_name    = "disposer-${var.env}"
   alert_name           = "idam-user-disposer-service-${var.env}-failure"
   alert_desc           = "Alert when idam user disposer fail to run"
-  app_insights_query   = "traces | where message contains 'Error executing Disposer Idam User service' | where toint(dayofweek(timestamp)/1d) < 5"
+  app_insights_query   = "traces | where message contains 'Error executing Disposer Idam User service' | where toint(dayofweek(timestamp)/1d) < 6"
   custom_email_subject = "Alert: Idam user disposer failure in disposer-${var.env}"
   #run every day as Idam disposer runs only once
   frequency_in_minutes = var.disposer_frequency_in_minutes
