@@ -47,7 +47,7 @@ module "idam-user-disposer-service-summary-alert" {
   app_insights_name    = "disposer-${var.env}"
   alert_name           = "idam-user-disposer-service-${var.env}-summary"
   alert_desc           = "Alert when idam user disposer run and present summary"
-  app_insights_query   = "traces | where message contains 'Disposer Idam User Summary' | where toint(dayofweek(timestamp)/1d) < 5"
+  app_insights_query   = "traces | where message contains 'Disposer Idam User Summary' | where toint(dayofweek(timestamp)/1d) < 6"
   custom_email_subject = "Alert: Idam user disposer Summary in disposer-${var.env}"
   #run every day as Idam User disposer runs only once
   frequency_in_minutes = var.disposer_frequency_in_minutes
