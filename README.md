@@ -1,6 +1,8 @@
 # disposer-shared-infrastructure
 
-This module sets up the shared infrastructure for idam-user-disposer.
+This module sets up the shared infrastructure for
+* disposer-idam-user
+* disposer-fee-and-pay
 
 ## Variables
 

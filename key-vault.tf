@@ -27,9 +27,20 @@ data "azurerm_key_vault_secret" "key_from_s2s_vault" {
   key_vault_id = data.azurerm_key_vault.s2s_vault.id
 }
 
+data "azurerm_key_vault_secret" "fee_and_pay_key_from_s2s_vault" {
+  name         = "microservicekey-disposer-fee-and-pay"
+  key_vault_id = data.azurerm_key_vault.s2s_vault.id
+}
+
 resource "azurerm_key_vault_secret" "s2s" {
   name         = "s2s-secret-disposer-idam-user"
   value        = data.azurerm_key_vault_secret.key_from_s2s_vault.value
+  key_vault_id = data.azurerm_key_vault.disposer_vault.id
+}
+
+resource "azurerm_key_vault_secret" "s2s_fee_and_pay" {
+  name         = "s2s-secret-disposer-fee-and-pay"
+  value        = data.azurerm_key_vault_secret.fee_and_pay_key_from_s2s_vault.value
   key_vault_id = data.azurerm_key_vault.disposer_vault.id
 }
 
