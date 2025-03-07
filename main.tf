@@ -19,5 +19,5 @@ import {
   # Specify the resource address to import to
   to = azurerm_key_vault_secret.s2s
   # Specify the resource ID to import from
-  id = "/subscriptions/${data.azurerm_subscription.current.subscription_id}/resourceGroups/disposer-perftest/providers/Microsoft.KeyVault/vaults/disposer-perftest/secrets/s2s-secret-disposer-idam-user"
+  id = "https://disposer-perftest.vault.azure.net/secrets/s2s-secret-disposer-idam-user/9fe518e1f4df4e7baf808ec50a9a4009"
 }
