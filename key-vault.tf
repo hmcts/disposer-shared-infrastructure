@@ -9,7 +9,7 @@ module "disposer-vault" {
   product_group_name      = "DTS Retain and Dispose"
   common_tags             = var.common_tags
   create_managed_identity = true
-  jenkins_object_id           = data.azurerm_user_assigned_identity.jenkins.principal_id
+  jenkins_object_id       = data.azurerm_user_assigned_identity.jenkins.principal_id
 }
 
 data "azurerm_user_assigned_identity" "jenkins" {
