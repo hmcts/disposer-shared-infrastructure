@@ -7,6 +7,7 @@ module "idam-user-disposer-action-group-slack" {
   short_name             = "disp-alert"
   email_receiver_name    = "Idam User Disposer Failure Alert"
   email_receiver_address = data.azurerm_key_vault_secret.idamUserDisposerAlertEmail.value
+  tags                   = var.common_tags
 }
 
 module "idam-user-disposer-service-failure-alert" {
@@ -39,6 +40,7 @@ module "idam-user-disposer-summary-action-group-slack" {
   short_name             = "idam-user"
   email_receiver_name    = "Idam User Disposer Summary Alert"
   email_receiver_address = data.azurerm_key_vault_secret.idamUserDisposerSummaryAlertEmail.value
+  tags                   = var.common_tags
 }
 
 module "idam-user-disposer-service-summary-alert" {
@@ -61,4 +63,3 @@ module "idam-user-disposer-service-summary-alert" {
   enabled                    = var.disposer_summary_enable_alerts
   common_tags                = var.common_tags
 }
-
